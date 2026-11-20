@@ -6,6 +6,10 @@ import {
 } from '@/components/sidebar/sidebar-content';
 import { render, screen } from '@/lib/test-utils';
 
+jest.mock('@/app/actions/prompt.actions', () => ({
+  searchPromptAction: jest.fn(async (previousState: unknown) => previousState),
+}));
+
 const pushMock = jest.fn();
 let mockSearchParams = new URLSearchParams();
 
